@@ -13,7 +13,7 @@ import java.time.Duration;
 public class Hooks {
 
     @Before()
-    public void setUp(){
+    public void setUp() {
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
@@ -21,13 +21,13 @@ public class Hooks {
     }
 
     @After()
-    public void tearDown(Scenario scenario){
-        if(scenario.isFailed()){
+    public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","screenshot");
+            scenario.attach(screenshot, "image/png", "screenshot");
         }
 
-       // Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 }

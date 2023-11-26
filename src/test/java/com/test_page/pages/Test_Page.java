@@ -73,7 +73,11 @@ public class Test_Page {
 
 
     //Test 6
-
+    public static String getCellValueFromGrid(int row,int col){
+        WebElement cell = Driver.getDriver().
+                findElement(By.xpath("//table[@class='table table-bordered table-dark']//tbody/tr["+row+"]/td["+col+"]"));
+        return cell.getText();
+    }
 
 
     public static WebElement testHeader(int testNum) {
