@@ -3,11 +3,10 @@ package com.test_page.utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.URL;
+
 import java.time.Duration;
 
 public class Driver {
@@ -31,8 +30,7 @@ public class Driver {
             String browserName = System.getProperty("browser") != null ? browserName = System.getProperty("browser") : ConfigurationReader.getProperty("browser");
 
 
-
-            switch(browserName){
+            switch (browserName) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
@@ -45,6 +43,14 @@ public class Driver {
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
+                case "headless-chrome":
+                    WebDriverManager.chromedriver().setup();
+                    ChromeOptions option = new ChromeOptions();
+                    option.addArguments("--headless=new");
+                    driverPool.set(new ChromeDriver(option));
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                    break;
             }
 
         }
@@ -54,8 +60,8 @@ public class Driver {
     }
 
     // This method will make sure our driver value is always null after using quit() method
-    public static void closeDriver(){
-        if(driverPool.get() != null){
+    public static void closeDriver() {
+        if (driverPool.get() != null) {
             driverPool.get().quit(); // this line will terminate the existing driver session. with using this driver will not be even null
             driverPool.remove();  //driver = null
         }
