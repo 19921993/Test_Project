@@ -27,12 +27,16 @@ public class Test_Page {
     @FindBy(xpath = "//ul[@class='list-group']/li")
     public List<WebElement> listGroup;
 
+    //This method created to get any list item from Test 2
+    //Returns list item as WebElement
     public static WebElement getListItem(int listItemNum){
         WebElement listItem = Driver.getDriver().findElement
                 (By.xpath("//ul[@class='list-group']/li[@class='list-group-item justify-content-between']["+listItemNum+"]"));
         return listItem;
     }
 
+    //This method created to get any list item's value from Test 2
+    //Returns value as WebElement
     public static WebElement getListItemValue(int listItemNum){
         WebElement listItemValue = Driver.getDriver().findElement
                 (By.xpath("//ul[@class='list-group']/li[@class='list-group-item justify-content-between']["+listItemNum+"]/span"));
@@ -73,6 +77,9 @@ public class Test_Page {
 
 
     //Test 6
+    //This method created to get any cell value from the table in test 6
+    //It's has 2 parameters one for the row and one for the column
+    //Returns value as String
     public static String getCellValueFromGrid(int row,int col){
         WebElement cell = Driver.getDriver().
                 findElement(By.xpath("//table[@class='table table-bordered table-dark']//tbody/tr["+row+"]/td["+col+"]"));
@@ -80,6 +87,8 @@ public class Test_Page {
     }
 
 
+    // This method for locating the test headers(Test 1,Test 2,Test 3,Test 4,Test 5,Test 6)
+    //It's Dynamic method and has one parameter which is the test number it's giving in the test script
     public static WebElement testHeader(int testNum) {
         WebElement header =
                 Driver.getDriver().findElement(By.xpath("//div[@id='test-"+ testNum +"-div']"));

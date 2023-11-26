@@ -49,9 +49,5 @@ public class Test01_StepDefs {
         testPage.signInButton.click();
     }
 
-    @Then("the user should be logged in")
-    public void the_user_should_be_logged_in() {
-
-    }
 
 }

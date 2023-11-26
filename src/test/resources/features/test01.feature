@@ -13,5 +13,3 @@ Feature: Login Functionality
     When the user enters an email address
     And enters a password
     And clicks the login button
-
-    Then the user should be logged in
