@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features" ,
         glue = "com/test_page/stepDefs",
-        dryRun = false,
-        tags = "@test02"
+        dryRun = true,
+        tags = "@test06"
 )
 public class CukesRunner {
 

@@ -40,8 +40,21 @@ public class Test_Page {
     }
 
     //TEST 3
-    @FindBy(id = "dropdownMenuButton")
+    @FindBy(xpath = "//button[@id='dropdownMenuButton']")
     public WebElement defaultSelectedValue;
+
+    public static WebElement getOptionFromDropdown(String option){
+        List<WebElement> dropdownMenu = Driver.getDriver().findElements(By.xpath(
+                "//a[@class='dropdown-item']"));
+
+        for (WebElement each : dropdownMenu) {
+            if (each.getText().equals(option)){
+                return each;
+            }
+
+        }
+        return null;
+    }
 
     //TEST 4
     @FindBy(xpath = "//div[@id='test-4-div']/button[@type='button'][1]")
@@ -58,6 +71,8 @@ public class Test_Page {
     @FindBy(xpath = "//div[@id='test5-alert'] ")
     public WebElement successMessage;
 
+
+    //Test 6
 
 
 
