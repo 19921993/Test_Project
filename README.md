@@ -6,6 +6,7 @@ Running locally
 To run locally and generate HTML reports, use this maven goal verify. HTML reports should be generated under target/cucumber-html-reports
 
 Tags
+
 You can pass a custom tag using CukesRunner Java class. Available tags are @smoke, @regression, @test01, @test02, @test03, @test04, @test05, @test06.
 
 Browsers
