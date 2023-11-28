@@ -1,34 +1,26 @@
 # Resolver_Project
 
-Basic cucumber BDD framework used for running automation tests on IntelliJ.
+The provided information describes a basic Cucumber BDD (Behavior-Driven Development) framework used for running automation tests on IntelliJ. Here's a breakdown of the different components and features mentioned:
 
-Running locally
+1. Running Locally:
+   - To run the tests locally and generate HTML reports, you need to use the Maven goal `verify`. This will trigger the execution of the Cucumber tests, and the HTML reports will be generated in the `target/cucumber-html-reports` directory.
 
-To run locally and generate HTML reports, use this maven goal verify. HTML reports should be generated under target/cucumber-html-reports
+2. Tags:
+   - Tags are used to categorize and selectively run specific scenarios or features. The framework supports custom tags such as `@smoke`, `@regression`, `@test01`, etc. You can pass these tags using the `CukesRunner` Java class to execute specific test scenarios.
 
-Tags
+3. Browsers:
+   - The framework supports different browsers for test execution, which can be configured using the `config.properties` file. Available browser options include `chrome`, `firefox`, and `headless-chrome`.
 
-You can pass a custom tag using CukesRunner Java class. Available tags are @smoke, @regression, @test01, @test02, @test03, @test04, @test05, @test06.
+4. POM (Page Object Model):
+   - The framework implements the Page Object Model design pattern. Under the `pages` package, you'll find the `Test_Page` Java class. This class contains the definition and methods related to locating web elements on the page. It also provides dynamic methods to interact with and return web elements.
 
-Browsers
+5. Features:
+   - The automation scripts for all test cases are defined in the feature files. These feature files are written in Gherkin language, which is a human-readable format that can be understood by both technical and non-technical stakeholders.
 
-You can pass change using config.properties file. Available browsers are chrome, firefox, headless-chrome.
+6. StepDefs:
+   - The StepDefs package contains the Selenium code for the test cases. It includes the step definitions that map the Gherkin steps to the corresponding automation actions. Additionally, there is a `Hooks` Java class that helps set up the driver before each step and close it after each step. It also captures screenshots in case of errors or defects, which can be viewed in the HTML reports.
 
-POM
+7. Utility:
+   - The Utility package includes a `Driver` class responsible for creating a web driver instance for each step. It ensures that a new driver is used for each test scenario. Additionally, there is a `ConfigurationReader` class that reads configurations from the `config.properties` file.
 
-This framework implements Page Object Model. Under pages package there is Test_Page Java class.
-This class has all the WebElements has been located and some methods it helps to create and return WebElements dynamiclly
-
-Features
-
-You can find the automation script for all test cases under the features file
-It designs for tech-people and non tech-people
-
-StepDefs
-
-You can find the selenium code for the test cases under this package
-There is Hooks Java class it helps to set-up the Driver before any step and close it after any step. In case if there is a error or defect it will take a screenshot for it and you can see it in the HTML report
-
-Utility
-
-It has driver class to create a web driver for every step. And this package has configuration Reader to read from config.properties
+Overall, this framework provides a structured approach to writing and executing Cucumber-based BDD tests using Selenium for web automation. It incorporates best practices like the Page Object Model for better maintainability and reusability of code. The HTML reports and screenshot capturing enhance the test reporting and debugging capabilities.
