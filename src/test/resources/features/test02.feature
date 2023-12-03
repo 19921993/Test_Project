@@ -10,3 +10,4 @@ Feature: Home Page Functionality
     Then the user should see 3 values in the list group
     And the list item number 2 value is set to "List Item 2"
     And the list item number 2 badge value is "6"
+
