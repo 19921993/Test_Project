@@ -32,19 +32,19 @@ public class Driver {
 
             switch (browserName) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                   //WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                   //WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                     break;
                 case "headless-chrome":
-                    WebDriverManager.chromedriver().setup();
+                    //WebDriverManager.chromedriver().setup();
                     ChromeOptions option = new ChromeOptions();
                     option.addArguments("--headless=new");
                     driverPool.set(new ChromeDriver(option));
